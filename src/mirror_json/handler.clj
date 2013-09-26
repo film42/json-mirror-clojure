@@ -1,5 +1,5 @@
 (ns mirror-json.handler
-  (:use mirror-json.cors)
+  (:use mirror-json.rest)
   (:use compojure.core)
   (:use ring.util.response)
   (:use ring.adapter.jetty)
@@ -29,4 +29,5 @@
 (def app
   (-> (handler/api app-routes)
       (middleware/wrap-json-response)
+      (wrap-json)
       (wrap-cors)))
