@@ -7,26 +7,20 @@
             [compojure.route :as route]
             [ring.middleware.json :as middleware]))
 
-(defn empty-json []
+(defn empty-response []
   {:body {}})
 
-(defn mirror [body]
-  {:headers {"Content-Type" "application/json"}
-   :body body})
+(defn mirror-response [body]
+  {:body body})
 
-(defn delete []
+(defn delete-response []
   {:status 204})
 
-(defn options []
-  {
-   :body {}})
-
 (defroutes app-routes
-  (GET     "/*" [] (empty-json))
-  (POST    "/*" {body :body} (mirror body))
-  (PUT     "/*" {body :body} (mirror body))
-  (DELETE  "/*" {body :body} (delete body))
-  (OPTIONS "/*" {} (options)))
+  (GET     "/*" []           (empty-response))
+  (POST    "/*" {body :body} (mirror-response body))
+  (PUT     "/*" {body :body} (mirror-response body))
+  (DELETE  "/*" {body :body} (delete-response body)))
 
 (def app
   (-> (handler/api app-routes)
