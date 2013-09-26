@@ -14,7 +14,7 @@
 (defn mirror-response [body]
   {:body body})
 
-(defn delete-response []
+(defn delete-response [body]
   {:status 204
    :body body})
 
