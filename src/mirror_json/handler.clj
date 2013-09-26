@@ -15,7 +15,8 @@
   {:body body})
 
 (defn delete-response []
-  {:status 204})
+  {:status 204
+   :body body})
 
 ;; App Routes, basically an ANY but easier to debug
 (defroutes app-routes
