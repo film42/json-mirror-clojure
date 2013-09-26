@@ -7,6 +7,7 @@
             [compojure.route :as route]
             [ring.middleware.json :as middleware]))
 
+;; JSON Responses / Statuses
 (defn empty-response []
   {:body {}})
 
@@ -16,12 +17,14 @@
 (defn delete-response []
   {:status 204})
 
+;; App Routes, basically an ANY but easier to debug
 (defroutes app-routes
   (GET     "/*" []           (empty-response))
   (POST    "/*" {body :body} (mirror-response body))
   (PUT     "/*" {body :body} (mirror-response body))
   (DELETE  "/*" {body :body} (delete-response body)))
 
+;; Create the App here
 (def app
   (-> (handler/api app-routes)
       (middleware/wrap-json-response)
