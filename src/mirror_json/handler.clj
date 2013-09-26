@@ -2,6 +2,7 @@
   (:use compojure.core)
   (:use ring.util.response)
   (:use ring.adapter.jetty)
+  (:use ring.middleware.cors)
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.middleware.json :as middleware]))
@@ -24,4 +25,5 @@
 
 (def app
   (-> (handler/api app-routes)
-      (middleware/wrap-json-response)))
+      (middleware/wrap-json-response)
+      (wrap-cors :access-control-allow-origin #".+")))
