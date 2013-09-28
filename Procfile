@@ -1,1 +1,1 @@
-web: lein run -m mirror-json.server
+web: lein run -m json-mirror.server
