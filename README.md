@@ -1,19 +1,9 @@
-# mirror-json
+# JSON Mirror in Clojure
 
-FIXME
+So this is simple compojure app that responds with any data thrown at it. Fully unlocked cors means anyone can use it.
 
-## Prerequisites
+I actually made a node app for this, but decided I'd like to try clojure and this came to mind, so here it is. On my local machine, speeds are about the same as node+express, with the hand slightly tipping toward clojure+compojure.
 
-You will need [Leiningen][1] 1.7.0 or above installed.
+Working here: http://mirror-clojure.herokuapp.com/
 
-[1]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein ring server
-
-## License
-
-Copyright © 2013 FIXME
+Copyright © 2013 Garrett T
